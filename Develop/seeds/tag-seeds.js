@@ -1,3 +1,6 @@
+//================================
+// didnt have to do anything with any of the seeds, already provided in the starter code
+//================================
 const { Tag } = require('../models');
 
 const tagData = [

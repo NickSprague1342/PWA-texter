@@ -6,11 +6,30 @@ const { Category, Product } = require('../../models');
 router.get('/', (req, res) => {
   // find all categories
   // be sure to include its associated Products
+  try {
+  const productCategories = await Category.findAllProducts({
+    include: [allProducts],
+  });
+  res.json(productCategories);
+} catch (error){
+  res.status(500).JSON (error);
+}
 });
 
 router.get('/:id', (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
+  try {
+    const productCategories = await Category.findProductByID (req.params.id, {
+      include: [allProducts],
+    });
+    if (Category) {
+      return message.JSON({ message: 'Product located!'});
+    }
+
+    else
+    return message.JSON ({message: 'Product not found!'})
+  }
 });
 
 router.post('/', (req, res) => {

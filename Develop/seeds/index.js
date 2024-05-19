@@ -1,3 +1,6 @@
+//================================
+// didnt have to do anything with any of the seeds or the index.js, already provided in the starter code
+//================================
 const seedCategories = require('./category-seeds');
 const seedProducts = require('./product-seeds');
 const seedTags = require('./tag-seeds');
