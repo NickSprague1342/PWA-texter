@@ -49,7 +49,14 @@ router.put('/:id', (req, res) => {
       where: {
         id: req.params.id,
       },
-    })
+    });
+    if(!newCatrgory[0]) {
+      res.status(404).json({message: `Cannot locate category!`});
+       return;
+    }
+    res.json({message: `Category updated!`});
+  } catch (error) {
+    res.status(500).json(error)
   }
 });
 
