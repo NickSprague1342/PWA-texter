@@ -34,6 +34,13 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new category
+  try {
+    const newCatrgory = await Category.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    })
+  }
 });
 
 router.put('/:id', (req, res) => {
